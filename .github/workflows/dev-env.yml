@@ -21,7 +21,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ghcr.io/similanklinsmith/bookinfo-ratings:dev
+          tags: ghcr.io/l-nattakron/bookinfo-ratings:dev
   deploy:
     needs: build
     runs-on: ubuntu-20.04
@@ -39,7 +39,7 @@ jobs:
         with:
           helm: helm3
           release: bookinfo-dev-ratings
-          namespace: student96-bookinfo-dev
+          namespace: student123-bookinfo-dev
           chart: k8s/helm
           value-files: k8s/helm-values/values-bookinfo-dev-ratings.yaml   
           values: |
@@ -53,10 +53,10 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Check health check page
-        run: curl http://bookinfo.dev.opsta.net/student96/ratings/health | grep "Ratings is working"
+        run: curl http://bookinfo.dev.opsta.net/student123/ratings/health | grep "Ratings is working"
 
 
                     
-      # - run: docker build -t ghcr.io/similanklinsmith/bookinfo-ratings:dev .
+      # - run: docker build -t ghcr.io/l-nattakron/bookinfo-ratings:dev .
       # - run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-      # - run: docker push ghcr.io/similanklinsmith/bookinfo-ratings:dev
+      # - run: docker push ghcr.io/l-nattakron/bookinfo-ratings:dev

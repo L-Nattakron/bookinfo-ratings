@@ -1,6 +1,6 @@
 ratings:
-  namespace: student96-bookinfo-dev
-  image: ghcr.io/similanklinsmith/bookinfo-ratings
+  namespace: student123-bookinfo-dev
+  image: ghcr.io/l-nattakron/bookinfo-ratings
   tag: dev
   replicas: 1
   imagePullSecrets: registry-bookinfo
@@ -11,7 +11,7 @@ ingress:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /$2
   host: bookinfo.dev.opsta.net
-  path: "/student96/ratings(/|$)(.*)"
+  path: "/student123/ratings(/|$)(.*)"
   serviceType: ClusterIP
 extraEnv:
   SERVICE_VERSION: v2
